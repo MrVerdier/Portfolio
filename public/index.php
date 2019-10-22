@@ -93,13 +93,11 @@ require_once 'top.php';
 
         anchors:['page1', 'page2', 'page3', 'page4'],
         section: '.section',
-
+        
         navigation: true,
         navigationPosition: 'left', 
         navigationTooltips: ['Home', 'About', "Projects", "Contact"],
         showActiveTooltip: true,
-        slidesNavigation: true,
-	    slidesNavPosition: 'bottom',
 
         animationDuration: 200,
         animationTiming: 'ease',
@@ -116,6 +114,11 @@ require_once 'top.php';
     })
     
 </script>
+<style>
+    #fp-nav ul li a span {
+        background: #fff;
+    }
+</style>
 
 <?php
 require_once 'bottom.php';
