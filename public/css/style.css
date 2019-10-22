@@ -21,38 +21,8 @@ p, span, div, h1, h2, h3 {
 
 /* ************************************************* */
 /* ************************************************* */
-nav {
-  position: fixed;
-  z-index: 9;
-  top: 40px;
-  left: 20px;
-}
-
-.nav-link {
-  text-decoration: none;
-  display: grid;
-  color: white;
-  cursor: pointer;
-  text-transform: uppercase;
-  margin: 40px 0px;
-  font-size: 21px;
-  position: relative;
-}
-.nav-link:after {
-  content: "";
-  position: absolute;
-  height: 7%;
-  right: 0px;
-  bottom: 0px;
-  z-index: -1;
-  border-radius: inherit;
-}
-.nav-link:hover:after {
-  animation: navAnimation 0.4s ease-out forwards;
-}
-
-.link-active {
-  border-bottom: 1px solid #000;
+#fp-nav {
+  top: 10% !important;
 }
 
 #logo {
@@ -99,8 +69,35 @@ nav {
 }
 
 /* ************************************************* */
-#home {
+#home #introText {
   position: relative;
+  left: 20%;
+  top: calc(50% - 100px);
+  height: 200px;
+  overflow: hidden;
+}
+#home #introText .scroll-hide {
+  position: absolute;
+  top: -20px;
+  animation: autoScroll 5s linear infinite alternate-reverse;
+}
+#home #introText .scroll-hide div {
+  margin: 10px 0;
+}
+#home #introText:after, #home #introText:before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  z-index: 1;
+}
+#home #introText:after {
+  bottom: 0;
+  background: linear-gradient(0deg, black 15%, rgba(0, 72, 148, 0) 100%);
+}
+#home #introText:before {
+  top: 0;
+  background: linear-gradient(0deg, rgba(0, 72, 148, 0) 15%, black 100%);
 }
 #home .section-wrapper {
   background: #000000;
@@ -109,16 +106,6 @@ nav {
   color: #fff;
 }
 
-#about {
-  position: relative;
-}
-#about #top-of-site-pixel-anchor {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  bottom: 0px;
-  left: 0;
-}
 #about .section-wrapper {
   background: #ffffff;
 }
@@ -135,6 +122,11 @@ nav {
 
 #contact .section-wrapper {
   background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 #contact p, #contact span, #contact div, #contact h1, #contact h2, #contact h3 {
   color: #000;
@@ -147,19 +139,16 @@ nav {
   position: relative;
   z-index: 1;
 }
-.section-wrapper div {
+.section-wrapper .section-description {
   position: absolute;
   bottom: 5%;
   left: 110px;
   color: #fff;
   width: 50%;
 }
-.section-wrapper div h1 {
+.section-wrapper .section-description h1 {
   text-transform: uppercase;
-  font-size: 104px;
-}
-.section-wrapper div svg {
-  height: 100px;
+  font-size: 90px;
 }
 
 /* ************************************************* */
@@ -173,62 +162,32 @@ nav {
   overflow: hidden;
 }
 
+@keyframes autoScroll {
+  0% {
+    top: 10px;
+  }
+  100% {
+    top: -400px;
+  }
+}
 @keyframes logoMoveTop {
   0% {
     width: 500px;
     top: 70px;
   }
   100% {
-    width: 140px;
+    width: 100px;
     top: 40px;
   }
 }
 @keyframes logoMoveMiddle {
   0% {
-    width: 140px;
+    width: 100px;
     top: 40px;
   }
   100% {
     width: 350px;
     top: 70px;
-  }
-}
-@keyframes navAnimation {
-  0% {
-    background-color: rgba(0, 0, 0, 0);
-    width: 0%;
-  }
-  100% {
-    background-color: black;
-    width: 100%;
-  }
-}
-@keyframes svgAnimate {
-  0% {
-    opacity: 0;
-    fill: none;
-    stroke-dashoffset: 2900;
-  }
-  30% {
-    opacity: 1;
-    fill: none;
-    stroke-dashoffset: 2900;
-  }
-  90% {
-    fill: rgba(0, 0, 0, 0);
-  }
-  100% {
-    opacity: 1;
-    fill: black;
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes slideIn {
-  0% {
-    left: -80px;
-  }
-  100% {
-    left: 20px;
   }
 }
 

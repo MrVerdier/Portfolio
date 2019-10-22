@@ -1,17 +1,13 @@
-
-if (
-  "IntersectionObserver" in window &&
-  "IntersectionObserverEntry" in window &&
-  "intersectionRatio" in window.IntersectionObserverEntry.prototype
-) {
-let observer = new IntersectionObserver(entries => {
-  if (entries[0].boundingClientRect.y < 0) {
-    document.getElementById("logo").classList.add("logoToCorner");
-    document.getElementById("logo").classList.add("logo-filter");
-  } else {
-    document.getElementById("logo").classList.remove("logoToCorner");
-    document.getElementById("logo").classList.remove("logo-filter");
-  }
-});
-observer.observe(document.querySelector("#top-of-site-pixel-anchor"));
-}
+$(document).ready(function(){
+  window.setInterval(function(){
+    if ($("#about").hasClass("active") || $("#contact").hasClass("active")){
+      $("#logo").addClass("logo-filter")
+      $("#logo").addClass("logoToCorner")
+    } else if ($("#home").hasClass("active")){
+      $("#logo").removeClass("logoToCorner")
+      $("#logo").removeClass("logo-filter")
+    }else {
+      $("#logo").removeClass("logo-filter")
+    }
+  }, 200)
+})
