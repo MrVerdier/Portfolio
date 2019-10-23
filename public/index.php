@@ -40,13 +40,8 @@ require_once 'top.php';
     
     <section id="about" class="page section" data-anchor="page2">
         <div class="section-wrapper">
-            <div class="section-description">
-                <h1>About</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Integer sed libero in nunc mollis fringilla a ac nulla.
-                    Maecenas sit amet lorem ut tortor tristique tempor. </p>
-                </div>
-            </div>
+                <div class="about-content">1</div>
+                <div class="about-content">2</div>
         </section>
 
     <!------------------ PROJECTS ------------------->
@@ -77,9 +72,10 @@ require_once 'top.php';
     <section id="contact" class="page section" data-anchor="page4">
         <div class="section-wrapper">
                 <h1>Contact</h1>
-                <form action="">    
+                <form id="frmContact">    
                     <div>Can I help?</div>
-                    <input id="contactMe" type="text"><br>
+                    <input type="text" name="mail" placeholder="Your email">
+                    <textarea name="message" rows="10" placeholder="Your message"></textarea>
                     <button>Send</button>
                 </form>
         </div>
@@ -115,9 +111,42 @@ require_once 'top.php';
     
 </script>
 <style>
-    #fp-nav ul li a span {
-        background: #fff;
+    #fp-nav {
+        top: 10%;
     }
+    
+    #fp-nav ul li {
+        margin: 12px 7px;
+        width: 80px;
+        text-transform: uppercase;
+
+    }
+
+    #fp-nav ul li .fp-tooltip {
+        font-family: 'Montserrat', sans-serif!important;
+    }
+
+    #fp-nav ul li a span {
+        background: none;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent; 
+        border-left:10px solid #fff; 
+        border-radius: 0;
+        margin: -6px 5px;
+        left: 10%;
+        top: 20%
+    }
+
+    #fp-nav ul li a.active span {
+        border-radius: 0;
+    }
+
+    #fp-nav ul li:hover a.active span {
+        border-radius: 0;
+    }
+    
+
+
 </style>
 
 <?php
